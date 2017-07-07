@@ -2,15 +2,15 @@ shared:
     image: node:6
 jobs:
     # the main job is run in pull requests as well
-    main:  
+    main:
         steps:
             - install: npm install screwdriver-template-main
             - validate: ./node_modules/.bin/template-validate
         environment:
-            SD_TEMPLATE_PATH: ./templates
+            SD_TEMPLATE_PATH: ./templates/other-template.yaml
     publish:
         steps:
             - install: npm install screwdriver-template-main
             - publish: ./node_modules/.bin/template-publish
         environment:
-            SD_TEMPLATE_PATH: ./templates
+            SD_TEMPLATE_PATH: ./templates/other-template.yaml
