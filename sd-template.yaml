@@ -1,0 +1,9 @@
+namespace: tiff
+name: template
+version: "1"
+description: has explicit namespace
+maintainer: namespace@baz.com
+config:
+  image: node:8
+  steps:
+    - echo: echo meow
