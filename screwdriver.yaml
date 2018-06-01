@@ -3,7 +3,7 @@ shared:
   image: node:8
   environment:
     # DO NOT OVERRIDE THIS SETTING
-    SD_API_URL: 'http://api.screwdriver.cd/v4/'
+    SD_API_URL: 'https://api.screwdriver.cd/v4/'
 jobs:
   main:
     requires: [~pr, ~commit]
