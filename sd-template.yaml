@@ -6,4 +6,8 @@ maintainer: namespace@baz.com
 config:
   image: node:8
   steps:
-    - echo: echo meow
+    - setup-ci: git clone https://github.com/screwdriver-cd/toolbox.git ci
+    - install: npm install
+    - duplicate: NPM_FILTER=screwdriver- ./ci/npm-dups.sh
+    - test: npm test
+    - coverage: ./ci/coverage.sh
