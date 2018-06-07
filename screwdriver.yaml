@@ -1,9 +1,6 @@
 ---
 shared:
   image: node:8
-  environment:
-    # DO NOT OVERRIDE THIS SETTING
-    SD_API_URL: 'https://api.screwdriver.cd/v4/'
 jobs:
   main:
     requires: [~pr, ~commit]
@@ -21,30 +18,21 @@ jobs:
     requires: [main]
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
-    - publish:  template-publish | tee publish.output
-    - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
-    - save_version: /opt/sd/meta set template.template_namespace.version `cat VERSION`
-    - tag: |
-        template-tag --name tiff/template --version `cat VERSION` --tag namespace
+    - publish:  template-publish
+    - autotag: template-tag --name tiff/template --tag latest
   publish_no-namespace_template:
     requires: [main]
     environment:
       SD_TEMPLATE_PATH: ./templates/other-template.yaml
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
-    - publish:  template-publish | tee publish.output
-    - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
-    - save_version: /opt/sd/meta set template.template_no-namespace.version `cat VERSION`
-    - tag: |
-        template-tag --name tiff/template --version `cat VERSION` --tag nonamespace
+    - publish:  template-publish 
+    - autotag: template-tag --name tiff/template --version `cat VERSION` --tag latest
   publish_default-namespace_template:
     requires: [main]
     environment:
       SD_TEMPLATE_PATH: ./templates/screwdriver-template.yaml
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
-    - publish:  template-publish | tee publish.output
-    - determine_version: cat publish.output | awk -F[@\ ] '{print $3}' | tee VERSION
-    - save_version: /opt/sd/meta set template.template_default-namespace.version `cat VERSION`
-    - tag: |
-        template-tag --name tifftemplate --version `cat VERSION` --tag defaultnamespace
+    - publish:  template-publish
+    - autotag: template-tag --name tifftemplate --version `cat VERSION` --tag latest
