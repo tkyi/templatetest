@@ -27,7 +27,7 @@ jobs:
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
     - publish:  template-publish 
-    - autotag: template-tag --name tiff/template --version `cat VERSION` --tag latest
+    - autotag: template-tag --name tiff/template --tag latest
   publish_default-namespace_template:
     requires: [main]
     environment:
@@ -35,4 +35,4 @@ jobs:
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
     - publish:  template-publish
-    - autotag: template-tag --name tifftemplate --version `cat VERSION` --tag latest
+    - autotag: template-tag --name tifftemplate --tag latest
