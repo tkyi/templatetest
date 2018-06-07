@@ -2,6 +2,9 @@ name: tifftemplate
 version: "1"
 description: should have default namespace
 maintainer: default@baz.com
+images:
+  latest: node:8
+  stable: node:6
 config:
   image: node:8
   steps:
