@@ -27,7 +27,7 @@ jobs:
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
     - publish:  template-publish 
-    - autotag: template-tag --name tiff/template --tag latest
+    - autotag: template-tag --name tiff/template2 --tag meow
   publish_default-namespace_template:
     requires: [main]
     environment:
