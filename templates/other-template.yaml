@@ -1,6 +1,6 @@
 name: tiff/template
 version: "1"
-description: no explicit namespace
+description: no explicit namespace in name
 maintainer: nonamespace@bar.com
 config:
   image: node:8
