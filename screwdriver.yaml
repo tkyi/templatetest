@@ -2,6 +2,12 @@
 shared:
   image: node:8
 jobs:
+  test:
+    requires: [~pr, ~commit]
+    sourcePaths: ["README.md", "templates/"]
+    steps:
+    - echo: echo hi
+    - cat: echo $SD_SOURCE_PATH
   main:
     requires: [~pr, ~commit]
     steps:
