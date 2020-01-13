@@ -1,7 +1,7 @@
 namespace: tiff
 name: template
 version: "1"
-description: has explicit namespace <a href="https://github.com/tkyi/templatetest">See docs</a>
+description: 'has explicit namespace <a href="https://github.com/tkyi/templatetest">See docs</a>'
 maintainer: namespace@baz.com
 config:
   image: node:8
