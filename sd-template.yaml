@@ -4,8 +4,8 @@ version: "2"
 description: 'test default template composition <a href="https://github.com/tkyi/templatetest">See docs</a>'
 maintainer: namespace@baz.com
 images:
-  - stable: node:8
-  - test: node:14
+  stable: node:8
+  test: node:14
 config:
   template: tifftemplate
   image: stable
