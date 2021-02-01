@@ -1,10 +1,14 @@
 namespace: tiff
 name: template
-version: "1"
-description: 'has explicit namespace <a href="https://github.com/tkyi/templatetest">See docs</a>'
+version: "2"
+description: 'test default template composition <a href="https://github.com/tkyi/templatetest">See docs</a>'
 maintainer: namespace@baz.com
+images:
+  - stable: node:8
+  - test: node:14
 config:
-  image: node:8
+  template: tifftemplate
+  image: stable
   steps:
     - setup-ci: git clone https://github.com/screwdriver-cd/toolbox.git ci
     - install: npm install
