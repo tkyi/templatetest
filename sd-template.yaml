@@ -1,7 +1,7 @@
 namespace: tiff
 name: template
 version: "2"
-description: 'test default template composition <a href="https://github.com/tkyi/templatetest">See docs</a>'
+description: 'test images for template composition <a href="https://github.com/tkyi/templatetest">See docs</a>'
 maintainer: namespace@baz.com
 images:
   stable: node:8
