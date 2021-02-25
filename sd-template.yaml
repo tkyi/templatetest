@@ -12,11 +12,11 @@ config:
   steps:
     - setup-ci: git clone https://github.com/screwdriver-cd/toolbox.git ci
     - install: 
-      command: npm install
-      locked: true
+        command: npm install
+        locked: true
     - duplicate:
-      command: NPM_FILTER=screwdriver- ./ci/npm-dups.sh
+        command: NPM_FILTER=screwdriver- ./ci/npm-dups.sh
     - test:
-      command: npm test
-      locked: true
+        command: npm test
+        locked: true
     - coverage: ./ci/coverage.sh
