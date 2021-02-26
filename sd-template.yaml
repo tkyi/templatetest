@@ -1,7 +1,7 @@
 namespace: tiff
 name: template
-version: "2"
-description: 'test images for template composition <a href="https://github.com/tkyi/templatetest">See docs</a>'
+version: "3"
+description: 'test locked <a href="https://github.com/tkyi/templatetest">See docs</a>'
 maintainer: namespace@baz.com
 images:
   stable: node:8
@@ -9,6 +9,7 @@ images:
 config:
   template: tifftemplate
   image: stable
+  order: [echo, setup-ci, install, duplicate, test, coverage]
   steps:
     - setup-ci: git clone https://github.com/screwdriver-cd/toolbox.git ci
     - install: 
