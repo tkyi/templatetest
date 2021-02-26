@@ -3,15 +3,20 @@ version: "2"
 description: test template composition with order keyword
 maintainer: nonamespace@bar.com
 config:
-  template: minz/nodejs_main@2
+  template: tiff/template@3
   order:
     - test
     - install
     - echo
   image: node:8
   steps:
-    - echo: echo woof
+    - echo:
+        command: echo woof
+        locked: true
     - install: echo skip
+    - other:
+        command: echo hi
+        locked: false
   environment:
     FOO: baz
     NODE_ENV: development
