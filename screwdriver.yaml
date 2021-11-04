@@ -43,4 +43,4 @@ jobs:
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
     - publish:  template-publish
-    - autotag: template-tag --name template2 --tag latest
+    - autotag: template-tag --name othernamespace/template2 --tag latest
