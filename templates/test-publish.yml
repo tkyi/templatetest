@@ -1,0 +1,11 @@
+namespace: othernamespace
+name: template2
+version: "0.0"
+description: |
+  Test Template
+maintainer: foo@bar.com
+config:
+  image: node:12
+  steps:
+    - echo: echo hi
+    - echo2: echo hello
