@@ -36,3 +36,11 @@ jobs:
     - install_prerequisites: npm install -g screwdriver-template-main
     - publish:  template-publish
     - autotag: template-tag --name tifftemplate --tag latest
+  publish_other-namespace_template:
+    requires: [main]
+    environment:
+      SD_TEMPLATE_PATH: ./templates/test-publish.yaml
+    steps:
+    - install_prerequisites: npm install -g screwdriver-template-main
+    - publish:  template-publish
+    - autotag: template-tag --name template2 --tag latest
