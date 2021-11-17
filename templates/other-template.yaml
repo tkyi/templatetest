@@ -3,11 +3,6 @@ version: "2"
 description: test template composition with order keyword
 maintainer: nonamespace@bar.com
 config:
-  template: tiff/template@3
-  order:
-    - test
-    - install
-    - echo
   image: node:8
   steps:
     - echo:
