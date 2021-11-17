@@ -1,12 +1,11 @@
 ---
-shared:
-  image: node:12
 jobs:
-  publish_other-namespace_template:
-    requires: [~pr, ~commit]
-    environment:
-      SD_TEMPLATE_PATH: ./templates/test-publish.yaml
-    steps:
-    - install_prerequisites: npm install -g screwdriver-template-main
-    - publish:  template-publish
-    - autotag: template-tag --name othernamespace2/template2 --tag latest
+    publish_templates:
+        image: node:12
+        steps:
+            - install: npm install screwdriver-template-main
+            - publish: ./node_modules/.bin/template-publish
+        requires: [ ~commit ]
+        environment:
+            SD_TEMPLATE_PATH: ./templates/test-publish.yaml
+    
