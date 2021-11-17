@@ -2,45 +2,11 @@
 shared:
   image: node:12
 jobs:
-  main:
-    requires: [~pr, ~commit]
-    steps:
-    - install_prerequisites: npm install -g screwdriver-template-main
-    - validate_namespace_template: |
-        template-validate
-    - validate_no-namespace_template: |
-        export SD_TEMPLATE_PATH=./templates/other-template.yaml
-        template-validate
-    - validate_default-namespace_template: |
-        export SD_TEMPLATE_PATH=./templates/screwdriver-template.yaml
-        template-validate
-  publish_namespace_template:
-    requires: [main]
-    steps:
-    - install_prerequisites: npm install -g screwdriver-template-main
-    - publish:  template-publish
-    - autotag: template-tag --name tiff/template --tag latest
-  publish_no-namespace_template:
-    requires: [main]
-    environment:
-      SD_TEMPLATE_PATH: ./templates/other-template.yaml
-    steps:
-    - install_prerequisites: npm install -g screwdriver-template-main
-    - publish:  template-publish 
-    - autotag: template-tag --name tiff/template2 --tag meow
-  publish_default-namespace_template:
-    requires: [main]
-    environment:
-      SD_TEMPLATE_PATH: ./templates/screwdriver-template.yaml
-    steps:
-    - install_prerequisites: npm install -g screwdriver-template-main
-    - publish:  template-publish
-    - autotag: template-tag --name tifftemplate --tag latest
   publish_other-namespace_template:
-    requires: [main]
+    requires: [~pr, ~commit]
     environment:
       SD_TEMPLATE_PATH: ./templates/test-publish.yaml
     steps:
     - install_prerequisites: npm install -g screwdriver-template-main
     - publish:  template-publish
-    - autotag: template-tag --name othernamespace/template2 --tag latest
+    - autotag: template-tag --name othernamespace2/template2 --tag latest
