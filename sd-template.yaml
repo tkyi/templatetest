@@ -7,9 +7,9 @@ images:
   stable: node:8
   test: node:14
 config:
-  template: tifftemplate
+  # template: tifftemplate
   image: stable
-  order: [echo, setup-ci, install, duplicate, test, coverage]
+  # order: [echo, setup-ci, install, duplicate, test, coverage]
   steps:
     - setup-ci: git clone https://github.com/screwdriver-cd/toolbox.git ci
     - install: 
